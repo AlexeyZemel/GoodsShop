@@ -1,0 +1,29 @@
+<div class="flex justify-between py-5 items-center px-28">
+  <a routerLink="/">
+    <img src="nav/logo.png"/>
+  </a>
+  <div class="flex items-center gap-4">
+    <a routerLink="/catalog">
+      <div class="flex items-center bg-green rounded-md p-2">
+        <img src="nav/menu.png"/>
+        <div class="text-white mx-3">Каталог</div>
+      </div>
+    </a>
+    <form class="rounded-md border border-green flex items-center p-2" #myForm="ngForm"
+          (ngSubmit)="submitForm(myForm)">
+      <input class="mx-4 focus:outline-none" type="text" name="textInput" ngModel placeholder="Найти товар"
+             required />
+      <button type="submit">
+        <img src="nav/search.png"/>
+      </button>
+    </form>
+  </div>
+    <div class="flex gap-6 items-center">
+      <app-button [imageSrc]="'nav/fav.png'" [routePath]="'/favorite'"
+                  [buttonText]="'Избранное'"></app-button>
+      <app-button [imageSrc]="'nav/order.png'" [routePath]="'/orders'"
+                  [buttonText]="'Заказы'"></app-button>
+      <app-button [imageSrc]="'nav/shopping-cart.png'" [routePath]="'/cart'"
+                  [buttonText]="'Корзина'"></app-button>
+    </div>
+</div>
