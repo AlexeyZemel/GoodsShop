@@ -14,7 +14,6 @@ import {ButtonComponent} from "./button/button.component";
 })
 export class NavbarComponent {
   submitForm(form: NgForm) {
-    // Ваша логика обработки формы здесь
     console.log(form.value.textInput);
   }
 }
