@@ -1,0 +1,18 @@
+<div class="flex flex-col justify-between bg-white rounded shadow-lg w-[250px] h-[349px] p-2">
+  <div class="flex">
+    <div class="flex justify-center w-full h-[160px]">
+      <img height="160" [src]="prod.image" [alt]="prod.title" [ngStyle]="{'width.px': prod.category === 'men\'s clothing' ||
+       prod.category === 'women\'s clothing' ? 126 : 'auto'}"/>
+    </div>
+  </div>
+  <div class="flex flex-row justify-between">
+    <div class="font-bold text-lg">{{prod.price | currency:'USD':'symbol':'1.2-2'}}</div>
+    <div class="text-sm">{{prod.category}}</div>
+  </div>
+  <div class="text-base hover:font-bold">{{prod.title}}</div>
+  <div>
+    <button class="rounded border-2  border-green text-green w-full py-2 hover:bg-orange hover:text-white hover:border-orange">
+      В корзину
+    </button>
+  </div>
+</div>

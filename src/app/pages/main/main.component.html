@@ -1,2 +1,7 @@
-<p>eemlveelge<br><br><br></p>
-
+<div>
+  <img class="w-full mb-20" src="Sliders.png" />
+  <ul class="flex flex-wrap justify-center gap-10 items-center">
+    <li *ngFor="let product of products" class="mb-4">
+      <app-goods-card [prod]="product"></app-goods-card>
+    </li>
+  </ul>

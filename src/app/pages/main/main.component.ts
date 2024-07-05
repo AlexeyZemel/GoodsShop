@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {CommonModule, NgForOf, NgIf} from "@angular/common";
 import { FakeStoreService, Product } from "../../services/fake-store.service";
+import {GoodsCardComponent} from "../../goods-card/goods-card.component";
 
 @Component({
   selector: 'app-main',
   standalone: true,
   imports: [
     NgForOf,
-    NgIf, CommonModule
+    NgIf, CommonModule, GoodsCardComponent
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'

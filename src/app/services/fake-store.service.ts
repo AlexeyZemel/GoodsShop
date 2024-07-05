@@ -13,9 +13,6 @@ export interface Product {
   image: string;
 }
 
-export interface Category {
-  name: string;
-}
 
 @Injectable({
   providedIn: 'root'
