@@ -1,8 +1,25 @@
 <div>
-  <img class="w-full mb-20" src="Sliders.png" />
-  <ul class="flex flex-wrap justify-center gap-10 items-center">
-    <li *ngFor="let product of products" class="mb-4">
-      <app-goods-card [prod]="product"></app-goods-card>
-    </li>
-  </ul>
+  <img class="w-full mb-[75px]" src="Sliders.png" />
+
+  <div class="flex justify-between mb-[40px] px-[120px]">
+    <h1 class="text-4xl font-bold">Наша продукция</h1>
+    <div class="flex items-center bg-silver rounded-md p-2">
+      <img src="filter.png" width="24" height="24"/>
+      <button (click)="fetchProductsByCategory(selectedCategory)">
+        <select class="mx-2 bg-silver text-white text-center" style="appearance: none;" [(ngModel)]="selectedCategory">
+          <option value="">all</option>
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+      </button>
+    </div>
+  </div>
+
+  <div class="mx-[120px]">
+    <ul class="flex flex-wrap justify-between gap-10 items-center">
+      <li *ngFor="let product of products" class="mb-4">
+        <app-goods-card [prod]="product"></app-goods-card>
+      </li>
+    </ul>
+  </div>
 </div>
+
