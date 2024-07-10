@@ -7,6 +7,7 @@ import {RouterLink} from "@angular/router";
 import {SimilarItemComponent} from "./similar-item/similar-item.component";
 import {GoodsCardComponent} from "../../goods-card/goods-card.component";
 import {OtherItemComponent} from "./other-item/other-item.component";
+import {StateService} from "../../services/state.service";
 
 @Component({
   selector: 'app-card-page',
@@ -29,7 +30,8 @@ export class CardPageComponent {
   categories: string[] = [];
   prodQuantity: number = 0;
 
-  constructor(private dataService: DataTransitionService, private cartService: CartService, private fakeStoreService: FakeStoreService) {}
+  constructor(private dataService: DataTransitionService, private cartService: CartService, private fakeStoreService: FakeStoreService,
+              private stateService: StateService) {}
 
   ngOnInit(): void {
     this.dataService.selectedProduct$.subscribe(product => {
@@ -37,6 +39,10 @@ export class CardPageComponent {
     });
     this.cartService.cartItems$.subscribe((data: CartItem[]) => {
       this.prodQuantity = this.cartService.getProductQuantity(this.prod.id);
+    });
+    this.stateService.refresh$.subscribe(() => {
+      this.prod = this.dataService.loadSelectedProduct();
+      this.fetchProductsByCategory(this.prod.category);
     });
     this.fetchProductsByCategory(this.prod.category);
     this.fetchCategories();
@@ -46,6 +52,10 @@ export class CardPageComponent {
     this.cartService.cartItems$.subscribe((data: CartItem[]) => {
       this.prodQuantity = this.cartService.getProductQuantity(this.prod.id);
     });
+  }
+
+  trigger() {
+    this.stateService.triggerRefresh();
   }
 
   addToCart() {

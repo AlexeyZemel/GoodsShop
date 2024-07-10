@@ -56,7 +56,7 @@
   </div>
   <div class="font-bold text-2xl mb-5 mt-[60px]">Другие товары</div>
   <div class="flex flex-row flex-wrap gap-5 justify-between">
-    <div class="w-[250px]" *ngFor="let category of categories">
+    <div class="w-[250px]" *ngFor="let category of categories" (click)="trigger()">
       <app-other-item [category]="category"></app-other-item>
     </div>
   </div>

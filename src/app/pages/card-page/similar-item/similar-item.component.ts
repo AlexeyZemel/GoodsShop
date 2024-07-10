@@ -4,6 +4,7 @@ import {CurrencyPipe, NgStyle} from "@angular/common";
 import {Router} from "@angular/router";
 import {DataTransitionService} from "../../../services/data-transition.service";
 
+
 @Component({
   selector: 'app-similar-item',
   standalone: true,
@@ -24,4 +25,7 @@ export class SimilarItemComponent {
     this.dataService.selectProduct(product);
     this.router.navigate(['/card']);
   }
+
+
+
 }
