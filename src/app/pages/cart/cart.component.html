@@ -1,0 +1,32 @@
+<div class="px-[120px]">
+  <div class="w-full pt-10 pb-10"><p class="font-bold text-4xl">Корзина</p></div>
+  <div class="flex flex-row">
+    <div class="basis-3/5">
+      <app-cart-card *ngFor="let card of products" [product]="card"></app-cart-card>
+    </div>
+    <div class="basis-2/5">
+      <div class="flex flex-col min-h-72 justify-between" >
+        <div class="basis-1/4 border border-t-0 border-l-0 border-r-0 border-b-green ">
+          <div class="flex flex-row justify-between p-2">
+            <p class="opacity-40">{{cartQuantity}} товара</p>
+            <p class="font-bold text-2xl">{{cartTotal | currency:'USD':'symbol':'1.2-2'}}</p>
+          </div>
+          <div class="flex flex-row justify-between p-2">
+            <p class="opacity-40">Скидка</p>
+            <p class="font-bold text-2xl">$0.00</p>
+          </div>
+        </div>
+        <div class="basis-1/4 border border-t-0 border-l-0 border-r-0 border-b-green ">
+          <div class="flex flex-row justify-between p-2">
+            <p class="opacity-40">Итог</p>
+            <p class="font-bold text-2xl">{{cartTotal | currency:'USD':'symbol':'1.2-2'}}</p>
+          </div>
+        </div>
+        <div class="basis-1/4 border border-t-0 border-l-0 border-r-0 border-b-green ">
+          <div class="bg-green bg-opacity-40"><button class="w-full m-2 p-2 g-2 " type="submit">Оформить заказ</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

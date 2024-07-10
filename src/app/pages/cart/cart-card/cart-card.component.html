@@ -1,0 +1,24 @@
+<div class="rounded shadow-lg bg-white flex flex-row justify-start items-center p-4 m-4">
+  <div class="flex">
+    <div class="flex justify-center w-[100px] h-[80px]">
+      <img height="80" [src]="product.product.image" [alt]="product.product.title"/>
+    </div>
+  </div>
+  <div class="flex flex-row w-full justify-between items-center">
+    <div class="flex flex-col justify-between mx-2">
+      <div class="">{{product.product.title}}</div>
+      <div class="font-bold text-lg">{{product.product.price | currency:'USD':'symbol':'1.2-2'}}</div>
+    </div>
+    <div class="flex flex-row justify-between items-center min-w-[220px]">
+      <div class="flex flex-row bg-green text-white rounded-md items-center gap-4 px-2 h-10 mr-4">
+        <button (click)="removeFromCart(product.product)">-</button>
+        <div>{{count}}</div>
+        <button (click)="addToCart(product.product)">+</button>
+      </div>
+      <div class="text-xl font-bold">{{totalProd | currency:'USD':'symbol':'1.2-2'}}</div>
+    </div>
+  </div>
+
+
+</div>
+

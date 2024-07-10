@@ -9,10 +9,23 @@
     <div class="font-bold text-lg">{{prod.price | currency:'USD':'symbol':'1.2-2'}}</div>
     <div class="text-sm">{{prod.category}}</div>
   </div>
-  <div class="text-base hover:font-bold">{{prod.title}}</div>
-  <div>
-    <button class="rounded border-2  border-green text-green w-full py-2 hover:bg-orange hover:text-white hover:border-orange">
+  <div class="text-base">{{prod.title}}</div>
+  <div [ngStyle]="{'display': prodQuantity === 0 ? 'block' : 'none'}">
+    <button class="rounded border-2  border-green text-green w-full py-2 hover:bg-orange hover:text-white hover:border-orange"
+    (click)="addToCart()">
       В корзину
     </button>
+  </div>
+  <div [ngStyle]="{'display': prodQuantity !== 0 ? 'flex' : 'none'}" class="flex flex-row justify-between w-full gap-2">
+    <div class="flex flex-row bg-green text-white rounded-md justify-around items-center gap-4 px-2 h-10 w-1/2">
+      <button (click)="removeFromCart()">-</button>
+      <div>{{prodQuantity}}</div>
+      <button (click)="addToCart()">+</button>
+    </div>
+    <div class="flex w-1/2 justify-around">
+      <button class="rounded border-2 w-full border-green text-green hover:bg-orange hover:text-white hover:border-orange"
+              [routerLink]="'/cart'">В корзину
+      </button>
+    </div>
   </div>
 </div>

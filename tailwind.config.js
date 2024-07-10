@@ -24,7 +24,7 @@ module.exports = {
       "bubble-gum": "#ff77e9",
       button: "#F3F2F1",
       sr: "#F3F2F1",
-      footer: "#F9F4E2"
+      footer: "#F9F4E2",
     },
     fontFamily: {
       rubik: ["Rubik", "sans-serif"],

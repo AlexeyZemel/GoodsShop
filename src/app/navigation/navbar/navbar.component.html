@@ -23,7 +23,12 @@
                   [buttonText]="'Избранное'"></app-button>
       <app-button [imageSrc]="'nav/order.png'" [routePath]="'/orders'"
                   [buttonText]="'Заказы'"></app-button>
-      <app-button [imageSrc]="'nav/shopping-cart.png'" [routePath]="'/cart'"
-                  [buttonText]="'Корзина'"></app-button>
+      <div class="relative">
+        <app-button [imageSrc]="'nav/shopping-cart.png'" [routePath]="'/cart'"
+                    [buttonText]="'Корзина'">
+        </app-button>
+        <div [ngStyle]="{'display': cartQuantity === 0 ? 'none' : 'flex'}" class="absolute text-xs flex items-center justify-around text-white z-[9999]
+        bg-orange border border-orange rounded-full top-0 right-0 w-4 h-4">{{cartQuantity}}</div>
+      </div>
     </div>
 </div>
