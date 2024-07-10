@@ -1,11 +1,11 @@
 <div class="rounded shadow-lg bg-white flex flex-row justify-start items-center p-4 m-4">
-  <div class="flex">
+  <div (click)="selectProduct(product.product)" class="flex hover:cursor-pointer">
     <div class="flex justify-center w-[100px] h-[80px]">
       <img height="80" [src]="product.product.image" [alt]="product.product.title"/>
     </div>
   </div>
-  <div class="flex flex-row w-full justify-between items-center">
-    <div class="flex flex-col justify-between mx-2">
+  <div class="flex flex-row w-full justify-between items-center hover:cursor-pointer">
+    <div class="flex flex-col justify-between mx-2" (click)="selectProduct(product.product)">
       <div class="">{{product.product.title}}</div>
       <div class="font-bold text-lg">{{product.product.price | currency:'USD':'symbol':'1.2-2'}}
         <span class="font-normal text-base ml-2">за шт.</span></div>

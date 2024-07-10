@@ -1,20 +1,20 @@
 <div class="flex flex-col justify-between bg-white rounded shadow-lg w-[250px] h-[349px] p-2">
-  <div (click)="selectProduct(prod)" class="hover:cursor-pointer">
+  <div (click)="selectProduct(product)" class="hover:cursor-pointer">
     <div class="flex">
       <div class="flex justify-center w-full h-[160px]">
-        <img height="160" [src]="prod.image" [alt]="prod.title" [ngStyle]="{'width.px': prod.category === 'men\'s clothing' ||
-       prod.category === 'women\'s clothing' ? 126 : 'auto'}"/>
+        <img height="160" [src]="product.image" [alt]="product.title" [ngStyle]="{'width.px': product.category === 'men\'s clothing' ||
+       product.category === 'women\'s clothing' ? 126 : 'auto'}"/>
       </div>
     </div>
     <div class="flex flex-row justify-between">
-      <div class="font-bold text-lg">{{prod.price | currency:'USD':'symbol':'1.2-2'}}</div>
-      <div class="text-sm">{{prod.category}}</div>
+      <div class="font-bold text-lg">{{product.price | currency:'USD':'symbol':'1.2-2'}}</div>
+      <div class="text-sm">{{product.category}}</div>
     </div>
-    <div class="text-base">{{prod.title}}</div>
+    <div class="text-base">{{product.title}}</div>
   </div>
   <div [ngStyle]="{'display': prodQuantity === 0 ? 'block' : 'none'}">
     <button class="rounded border-2  border-green text-green w-full py-2 hover:bg-orange hover:text-white hover:border-orange"
-    (click)="addToCart()">
+            (click)="addToCart()">
       В корзину
     </button>
   </div>
@@ -31,3 +31,4 @@
     </div>
   </div>
 </div>
+

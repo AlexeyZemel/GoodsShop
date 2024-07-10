@@ -1,0 +1,14 @@
+<div class="flex flex-col justify-between bg-white rounded shadow-lg w-[250px] h-[200px] p-2">
+  <div (click)="selectProduct(product)" class="hover:cursor-pointer">
+    <div class="flex">
+      <div class="flex justify-center w-full h-[160px]">
+        <img height="160" [src]="product.image" [alt]="product.title" [ngStyle]="{'width.px': product.category === 'men\'s clothing' ||
+       product.category === 'women\'s clothing' ? 126 : 'auto'}"/>
+      </div>
+    </div>
+    <div class="flex flex-row justify-between">
+      <div class="font-bold text-lg">{{product.price | currency:'USD':'symbol':'1.2-2'}}</div>
+      <div class="text-sm">{{product.category}}</div>
+    </div>
+  </div>
+</div>

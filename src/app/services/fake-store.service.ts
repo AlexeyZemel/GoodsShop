@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 const BASE_URL = 'https://fakestoreapi.com';
 
@@ -35,4 +37,9 @@ export class FakeStoreService {
   getProductsByCategory(category: string): Observable<Product[]> {
     return this.http.get<Product[]>(`${BASE_URL}/products/category/${category}`);
   }
+
+  getProductByCategory(category: string): Observable<Product> {
+    return this.getProductsByCategory(category).pipe(map(products => products[0]));
+  }
+
 }

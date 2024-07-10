@@ -1,0 +1,63 @@
+<div class="px-[120px] mt-10">
+  <h1 class="text-4xl font-bold">{{prod.title}}</h1>
+  <div class="flex flex-row gap-[70px] mt-10">
+    <div class="flex bg-white rounded shadow-lg max-h-[500px]">
+      <img height="500" [src]="prod.image" [alt]="prod.title" [ngStyle]="{'width.px': prod.category === 'men\'s clothing' ||
+       prod.category === 'women\'s clothing' ? 390 : 'auto'}"/>
+    </div>
+    <div class="flex flex-col h-[300px] min-w-[500px]">
+      <div class="flex justify-end text-5xl font-bold mb-[10px]">
+        {{prod.price | currency:'USD':'symbol':'1.2-2'}}
+      </div>
+      <div class="flex justify-end text-2xl mb-5">
+        за шт.
+      </div>
+      <div>
+        <div [ngStyle]="{'display': prodQuantity === 0 ? 'block' : 'none'}" class="font-bold text-3xl">
+          <button class="rounded border-2 h-[100px] border-green text-green w-full py-2 hover:bg-orange hover:text-white hover:border-orange"
+                  (click)="addToCart()">
+            В корзину
+          </button>
+        </div>
+        <div [ngStyle]="{'display': prodQuantity !== 0 ? 'flex' : 'none'}" class="flex flex-row justify-between w-full gap-2 text-3xl">
+          <div class="flex flex-row bg-green text-white rounded-md justify-around items-center gap-4 px-2 h-[100px] w-1/2">
+            <button (click)="removeFromCart()">-</button>
+            <div>{{prodQuantity}}</div>
+            <button (click)="addToCart()">+</button>
+          </div>
+          <div class="flex w-1/2 justify-around font-bold text-3xl">
+            <button class="rounded border-2 w-full border-green text-green hover:bg-orange hover:text-white hover:border-orange"
+                    [routerLink]="'/cart'">В корзину
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 max-w-[500px] mt-5">
+        <div class="flex flex-row gap-1">
+          <div class="font-bold">Id товара: </div>
+          <div>{{prod.id}}</div>
+        </div>
+        <div class="flex flex-row gap-1">
+          <div class="font-bold">Категория: </div>
+          <div>{{prod.category}}</div>
+        </div>
+        <div class="flex flex-row gap-1">
+          <div class="font-bold">Описание: </div>
+          <div>{{prod.description}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-2">
+      <div class="font-bold text-lg">Похожие</div>
+      <div *ngFor="let product of products" [ngStyle]="{'display': product.id === prod.id ? 'none' : 'block' }" class="mb-4">
+        <app-similar-item [product]="product"></app-similar-item>
+      </div>
+    </div>
+  </div>
+  <div class="font-bold text-2xl mb-5 mt-[60px]">Другие товары</div>
+  <div class="flex flex-row flex-wrap gap-5 justify-between">
+    <div class="w-[250px]" *ngFor="let category of categories">
+      <app-other-item [category]="category"></app-other-item>
+    </div>
+  </div>
+</div>
